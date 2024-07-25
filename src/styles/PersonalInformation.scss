@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+
+.personal-information {
+  background: #3a41e4;
+  width: 100%;
+  height: auto;
+  padding: 2rem .8rem 2rem .8rem;
+  color: #eee;
+
+  &__fullname {
+    font-family: 'Rubik Mono One', monospace;
+    font-weight: 400;
+    font-size: 2.5rem;
+    font-style: normal;
+    border-bottom: 2px solid #eee;
+    margin-bottom: .5rem;
+    padding-bottom: 5px;
+  }
+
+  &__job-title, &__location, &__contact-info {
+    font-family: 'Rubik', sans-serif;
+    margin-bottom: 0.8rem;
+  }
+
+  &__location, &__contact-info {
+    margin-left: 1.2rem;
+  }
+
+  &__job-title {
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-left: .8rem;
+  }
+
+  &__location {
+    font-weight: 400;
+    font-size: 1rem;
+
+    & > span {
+      font-weight: 700;
+    }
+  }
+
+  &__contact-info {
+    &__email, &__phone-number {
+      margin-bottom: .8rem;
+      & > span {
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__sm-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem 0 0 0;
+
+    &__link {
+      list-style-type: none;
+      transition: 0.4s ease-out;
+    }
+
+    &__link:hover {
+      transform: scale(1.3);
+    }
+
+    & .img-icon {
+      width: 35px;
+      height: auto;
+    }
+  }
+}

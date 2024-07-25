@@ -1,0 +1,76 @@
+.work-experience {
+  display: flex;
+  flex-direction: column;
+  padding: .8rem;
+  font-family: 'Rubik', sans-serif;
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: .8rem;
+
+    &__icon {
+      width: 25px;
+      height: auto;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    &__box {
+      display: flex;
+      flex-direction: column;
+      padding: .8rem;
+      border-bottom: 2px solid #000;
+      font-size: 1rem;
+
+      &__job-position {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: .5rem;
+
+        &::before {
+          content: '▶︎ ';
+        }
+      }
+
+      &__company-name, &__location, &__start-end-date, &__job-desc {
+        margin-left: 1rem;
+        margin-bottom: .8rem;
+      }
+
+      &__company-name {
+        font-weight: 700;
+      }
+
+      &__location > span, &__start-end-date__item > span {
+        font-weight: 700;
+      }
+
+      &__start-end-date {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        gap: 5rem;
+      }
+
+      &__job-desc {
+        &__title {
+          font-weight: 700;
+        }
+
+        &__desc {
+          padding: .5rem .5rem 0 .5rem;
+        }
+
+      }
+    }
+
+  }
+}

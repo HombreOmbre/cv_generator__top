@@ -1,0 +1,65 @@
+.study-experience {
+  display: flex;
+  flex-direction: column;
+  padding: .8rem;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1rem;
+  gap: 1rem;
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+
+    &__icon {
+      width: 30px;
+      height: auto;
+    }
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    padding: .8rem;
+    border-bottom: 2px solid #000;
+
+    &__school-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: .5rem;
+
+      &::before {
+        content: '▶︎ ';
+      }
+    }
+
+    &__degree-major, &__start-end-date, &__opt-desc {
+      margin-left: 1rem;
+    }
+
+    &__degree-major, &__start-end-date {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      gap: 5rem;
+      margin-bottom: .8rem;
+
+      &__item > span {
+        font-weight: 700;
+      }
+    }
+
+    &__opt-desc {
+      &__title {
+        font-weight: 700;
+      }
+
+      &__desc {
+        padding: .5rem;
+        text-wrap: wrap;
+      }
+    }
+  }
+}
