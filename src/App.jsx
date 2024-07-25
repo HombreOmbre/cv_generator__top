@@ -7,46 +7,47 @@ import HeaderComponent from "./components/HeaderComponent.jsx";
 
 
 export default function App() {
-    const [personalInfo, setPersonalInfo] = useState(
+    const initialPersonalInfo = {
+        name: '',
+        surname: '',
+        location: '',
+        jobTitle: '',
+        email: '',
+        phoneNumber: '',
+        smLinks: [
+            '',
+            '',
+            '',
+            '',
+        ],
+    };
+    const initialEduExp = [
         {
-            name: '',
-            surname: '',
+            schoolName: '',
+            schoolDegree: '',
+            schoolMajor: '',
+            startDate: '',
+            endDate: '',
+            optDesc: '',
+            id: uuidv4(),
+        },
+    ];
+
+    const initialWorkExp = [
+        {
+            companyName: '',
             location: '',
-            jobTitle: '',
-            email: '',
-            phoneNumber: '',
-            smLinks: [
-                '',
-                '',
-                '',
-                '',
-            ],
-        }
-    );
+            title: '',
+            startDate: '',
+            endDate: '',
+            jobDesc: '',
+            id: uuidv4(),
+        },
+    ];
 
-    const [studyExp, setStudyExp] = useState([
-            {
-                schoolName: '',
-                schoolDegree: '',
-                schoolMajor: '',
-                startDate: '',
-                endDate: '',
-                optDesc: '',
-                id: uuidv4(),
-            },
-        ]);
-
-    const [workExp, setWorkExp] = useState( [
-            {
-                companyName: '',
-                location: '',
-                title: '',
-                startDate: '',
-                endDate: '',
-                jobDesc: '',
-                id: uuidv4(),
-            },
-    ]);
+    const [personalInfo, setPersonalInfo] = useState(initialPersonalInfo);
+    const [studyExp, setStudyExp] = useState(initialEduExp);
+    const [workExp, setWorkExp] = useState(initialWorkExp);
 
     const [tmpPersonalInfo, setTmpPersonalInfo] = useState(null);
     const [tmpEduExp, setTmpEduExp] = useState(null);
@@ -64,41 +65,9 @@ export default function App() {
     }
 
     const resetAllData = () => {
-        setPersonalInfo({
-            name: '',
-            surname: '',
-            location: '',
-            jobTitle: '',
-            email: '',
-            phoneNumber: '',
-            smLinks: [
-                '',
-                '',
-                '',
-                '',
-            ]
-        });
-        setStudyExp([
-            {
-                schoolName: '',
-                schoolDegree: '',
-                schoolMajor: '',
-                startDate: '',
-                endDate: '',
-                optDesc: '',
-                id: uuidv4(),
-            },
-        ]);
-        setWorkExp([{
-            companyName: '',
-            location: '',
-            title: '',
-            startDate: '',
-            endDate: '',
-            jobDesc: '',
-            id: uuidv4(),
-        }
-        ]);
+        setPersonalInfo(initialPersonalInfo);
+        setStudyExp(initialEduExp);
+        setWorkExp(initialWorkExp);
         setTmpPersonalInfo(null);
         setTmpEduExp(null);
         setTmpWorkExp(null);
