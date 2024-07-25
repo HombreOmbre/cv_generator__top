@@ -103,25 +103,25 @@ export default function App() {
     }
 
     return (
-        <>
-            <HeaderComponent />
             <div className="main-container">
-                <EditComponent
-                    personalInfo={tmpPersonalInfo === null ? personalInfo : tmpPersonalInfo}
-                    studyExp={tmpEduExp === null ? studyExp : tmpEduExp}
-                    workExp={tmpWorkExp === null ? workExp : tmpWorkExp}
-                    resetAllData={resetAllData}
-                    saveAllData={saveAllData}
-                    setTmpPersonalInfo={setTmpPersonalInfo}
-                    setTmpEduExp={setTmpEduExp}
-                    setTmpWorkExp={setTmpWorkExp}
-                />
-                <Preview
-                    personalInfo={personalInfo}
-                    studyExp={studyExp}
-                    workExp={workExp}
-                />
+                <HeaderComponent />
+                <div className="main-container__content">
+                    <EditComponent
+                        personalInfo={tmpPersonalInfo === null ? personalInfo : tmpPersonalInfo}
+                        studyExp={tmpEduExp === null ? studyExp : tmpEduExp}
+                        workExp={tmpWorkExp === null ? workExp : tmpWorkExp}
+                        resetAllData={resetAllData}
+                        saveAllData={saveAllData}
+                        setTmpPersonalInfo={setTmpPersonalInfo}
+                        setTmpEduExp={setTmpEduExp}
+                        setTmpWorkExp={setTmpWorkExp}
+                    />
+                    <Preview
+                        personalInfo={personalInfo}
+                        studyExp={studyExp}
+                        workExp={workExp}
+                    />
+                </div>
             </div>
-        </>
     );
 }
