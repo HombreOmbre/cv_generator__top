@@ -101,6 +101,7 @@
       &__time-range {
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
         width: 100%;
         gap: 2rem;
         margin-bottom: .8rem;

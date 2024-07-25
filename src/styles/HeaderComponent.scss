@@ -2,19 +2,18 @@
 
 .header-component {
   width: 100%;
-  height: auto;
-  padding: 1.2rem;
   border-bottom: 4px solid #000000;
   background-color: #3a41e4;
   display: flex;
   justify-content: center;
-  align-items: center;
 
   &__container {
     max-width: 1440px;
+    padding: 1.2rem;
+    display: flex;
+    flex: 1;
 
     &__title {
-      margin-right: auto;
       color: #eeeeee;
       font-size: 2rem;
       font-family: 'Rubik', sans-serif;

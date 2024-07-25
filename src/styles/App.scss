@@ -2,14 +2,22 @@
 @import './reset.scss';
 
 .main-container {
-  width: clamp(330px, 100%, 1440px);
+  width: 100%;
   min-height: 100vh;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: stretch;
+  align-items: center;
+  justify-content: stretch;
+  flex-direction: column;
   font-family: 'Rubik', sans-serif;
   color: #1e1e1e;
   background: #1e1e1e;
-  gap: 5px;
+
+  &__content {
+    width: clamp(320px, 100%, 1440px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex: 1;
+    gap: 5px;
+  }
 }
