@@ -109,7 +109,9 @@ export default function PersonalInfoEditor({personalInfo, setTmpPersonalInfo}) {
                             value={personalInfo.smLinks[index]}
                             onChange={(e) => {
                                 let tmpPersonalInfo = {...personalInfo};
-                                tmpPersonalInfo.smLinks[index] = e.target.value.trim();
+                                let tmpLinksArr = [...tmpPersonalInfo.smLinks];
+                                tmpLinksArr[index] = e.target.value.trim();
+                                tmpPersonalInfo.smLinks = tmpLinksArr;
                                 setTmpPersonalInfo(tmpPersonalInfo);
                             }}
                         />
