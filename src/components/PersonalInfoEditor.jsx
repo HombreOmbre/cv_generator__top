@@ -11,6 +11,24 @@ export default function PersonalInfoEditor({personalInfo, setTmpPersonalInfo, op
         setOpenTab(tmpOpenTab);
     }
 
+    const handleInputChange = (fieldName, value) => {
+        setTmpPersonalInfo(() => {
+            return {
+                ...personalInfo,
+                [fieldName]: value.trim()
+            }
+        });
+    };
+
+    const handleLinkChange = (index, value) => {
+        setTmpPersonalInfo(() => {
+            let tmpLinksArr = [...personalInfo.smLinks];
+            tmpLinksArr.splice(index, 1, value.trim());
+
+            return {...personalInfo, smLinks: tmpLinksArr};
+        });
+    };
+
     return (
         <div className="personal-info-editor-container">
             <div className="personal-info-editor-container__header">
@@ -29,7 +47,7 @@ export default function PersonalInfoEditor({personalInfo, setTmpPersonalInfo, op
                     placeholder={'Name'}
                     inputId={'name'}
                     value={personalInfo.name}
-                    onChange={(e) => setTmpPersonalInfo({...personalInfo, name: e.target.value.trim()})}
+                    onChange={(e) => handleInputChange('name', e.target.value)}
                 />
                 <InputComponent
                     nameOfClass={'personal-info-editor-container__body'}
@@ -38,7 +56,7 @@ export default function PersonalInfoEditor({personalInfo, setTmpPersonalInfo, op
                     placeholder={'Surname'}
                     inputId={'surname'}
                     value={personalInfo.surname}
-                    onChange={(e) => setTmpPersonalInfo({...personalInfo, surname: e.target.value.trim()})}
+                    onChange={(e) => handleInputChange('surname', e.target.value)}
                 />
                 <InputComponent
                     nameOfClass={'personal-info-editor-container__body'}
@@ -47,7 +65,7 @@ export default function PersonalInfoEditor({personalInfo, setTmpPersonalInfo, op
                     placeholder={'Job Title'}
                     inputId={'jobTitle'}
                     value={personalInfo.jobTitle}
-                    onChange={(e) => setTmpPersonalInfo({...personalInfo, jobTitle: e.target.value.trim()})}
+                    onChange={(e) => handleInputChange('jobTitle', e.target.value)}
                 />
                 <InputComponent
                     nameOfClass={'personal-info-editor-container__body'}
@@ -56,7 +74,7 @@ export default function PersonalInfoEditor({personalInfo, setTmpPersonalInfo, op
                     placeholder={'Location'}
                     inputId={'location'}
                     value={personalInfo.location}
-                    onChange={(e) => setTmpPersonalInfo({...personalInfo, location: e.target.value.trim()})}
+                    onChange={(e) => handleInputChange('location', e.target.value)}
                 />
                 <InputComponent
                     nameOfClass={'personal-info-editor-container__body'}
@@ -65,7 +83,7 @@ export default function PersonalInfoEditor({personalInfo, setTmpPersonalInfo, op
                     placeholder={'Email'}
                     inputId={'email'}
                     value={personalInfo.email}
-                    onChange={(e) => setTmpPersonalInfo({...personalInfo, email: e.target.value.trim()})}
+                    onChange={(e) => handleInputChange('email', e.target.value)}
                 />
                 <InputComponent
                     nameOfClass={'personal-info-editor-container__body'}
@@ -74,7 +92,7 @@ export default function PersonalInfoEditor({personalInfo, setTmpPersonalInfo, op
                     placeholder={'Phone Number'}
                     inputId={'phoneNumber'}
                     value={personalInfo.phoneNumber}
-                    onChange={(e) => setTmpPersonalInfo({...personalInfo, phoneNumber: e.target.value.trim()})}
+                    onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
                 />
                 {personalInfo.smLinks.map((link, index) => {
                     let label;
@@ -108,13 +126,7 @@ export default function PersonalInfoEditor({personalInfo, setTmpPersonalInfo, op
                             placeholder={label}
                             inputId={id}
                             value={personalInfo.smLinks[index]}
-                            onChange={(e) => {
-                                let tmpPersonalInfo = {...personalInfo};
-                                let tmpLinksArr = [...tmpPersonalInfo.smLinks];
-                                tmpLinksArr[index] = e.target.value.trim();
-                                tmpPersonalInfo.smLinks = tmpLinksArr;
-                                setTmpPersonalInfo(tmpPersonalInfo);
-                            }}
+                            onChange={(e) => handleLinkChange('smLink', e.target.value)}
                         />
                     )
                 })}
