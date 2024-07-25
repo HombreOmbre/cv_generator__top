@@ -13,7 +13,9 @@ export default function EditComponent(
         saveAllData,
         setTmpPersonalInfo,
         setTmpEduExp,
-        setTmpWorkExp
+        setTmpWorkExp,
+        openTab,
+        setOpenTab
     }
 ) {
     return (
@@ -25,14 +27,20 @@ export default function EditComponent(
             <PersonalInfoEditor
                 personalInfo={personalInfo}
                 setTmpPersonalInfo={setTmpPersonalInfo}
+                openTab={openTab}
+                setOpenTab={setOpenTab}
             />
             <StudyExpEditor
                 studyExp={studyExp}
                 setTmpEduExp={setTmpEduExp}
+                openTab={openTab}
+                setOpenTab={setOpenTab}
             />
             <WorkExpEditor
                 workExp={workExp}
                 setTmpWorkExp={setTmpWorkExp}
+                openTab={openTab}
+                setOpenTab={setOpenTab}
             />
         </div>
     );

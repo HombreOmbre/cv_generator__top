@@ -1,15 +1,17 @@
-import { useState} from "react";
 import { format } from "date-fns";
 import InputComponent from "./InputComponent.jsx";
 import '../styles/ExpEditor.scss';
 import ButtonComponent from "./ButtonComponent.jsx";
 import {v4 as uuidv4} from "uuid";
 
-export default function WorkExpEditor({workExp, setTmpWorkExp}) {
-    const [isOpen, setIsOpen] = useState(false);
-
+export default function WorkExpEditor({workExp, setTmpWorkExp, openTab, setOpenTab}) {
     const handleClick = () => {
-        setIsOpen(!isOpen);
+        let tmpOpenTab = [...openTab];
+        let isOpen = !tmpOpenTab[2];
+        tmpOpenTab[0] = false;
+        tmpOpenTab[1] = false;
+        tmpOpenTab[2] = isOpen;
+        setOpenTab(tmpOpenTab);
     }
 
     const removeExperience = (e) => {
@@ -42,10 +44,10 @@ export default function WorkExpEditor({workExp, setTmpWorkExp}) {
                     Work Information
                 </div>
                 <button className="work-exp-editor-container__header__btn" onClick={handleClick}>
-                    {isOpen ? '▲' : '▼'}
+                    {openTab[2] ? '▲' : '▼'}
                 </button>
             </div>
-            <div className={isOpen ? "work-exp-editor-container__body__active" : "work-exp-editor-container__body"}>
+            <div className={openTab[2] ? "work-exp-editor-container__body__active" : "work-exp-editor-container__body"}>
                 {workExp.map((workInfo, index) => {
                     return (
                         <div className='work-exp-editor-container__body__exp-box' key={workInfo.id}>

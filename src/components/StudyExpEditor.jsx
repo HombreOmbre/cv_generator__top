@@ -1,15 +1,17 @@
-import { useState} from "react";
 import { format } from "date-fns";
 import InputComponent from "./InputComponent.jsx";
 import '../styles/ExpEditor.scss';
 import ButtonComponent from "./ButtonComponent.jsx";
 import {v4 as uuidv4} from "uuid";
 
-export default function StudyExpEditor({studyExp, setTmpEduExp}) {
-    const [isOpen, setIsOpen] = useState(false);
-
+export default function StudyExpEditor({studyExp, setTmpEduExp, openTab, setOpenTab}) {
     const handleClick = () => {
-        setIsOpen(!isOpen);
+        let tmpOpenTab = [...openTab];
+        let isOpen = !tmpOpenTab[1];
+        tmpOpenTab[0] = false;
+        tmpOpenTab[1] = isOpen;
+        tmpOpenTab[2] = false;
+        setOpenTab(tmpOpenTab);
     }
 
     const removeExperience = (e) => {
@@ -39,10 +41,10 @@ export default function StudyExpEditor({studyExp, setTmpEduExp}) {
                     Education Information
                 </div>
                 <button className="study-exp-editor-container__header__btn" onClick={handleClick}>
-                    {isOpen ? '▲' : '▼'}
+                    {openTab[1] ? '▲' : '▼'}
                 </button>
             </div>
-            <div className={isOpen ? "study-exp-editor-container__body__active" : "study-exp-editor-container__body"}>
+            <div className={openTab[1] ? "study-exp-editor-container__body__active" : "study-exp-editor-container__body"}>
                 {studyExp.map((eduInfo, index) => {
                     return (
                         <div className='study-exp-editor-container__body__exp-box' key={eduInfo.id}>

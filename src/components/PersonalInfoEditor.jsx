@@ -1,14 +1,15 @@
-import {useState} from "react";
 import InputComponent from "./InputComponent.jsx";
 import '../styles/PersonalInfoEditor.scss';
 
-export default function PersonalInfoEditor({personalInfo, setTmpPersonalInfo}) {
-    const [isOpen, setIsOpen] = useState(false);
-
+export default function PersonalInfoEditor({personalInfo, setTmpPersonalInfo, openTab, setOpenTab}) {
     const handleClick = () => {
-        setIsOpen(!isOpen);
+        let tmpOpenTab = [...openTab];
+        let isOpen = !tmpOpenTab[0];
+        tmpOpenTab[0] = isOpen;
+        tmpOpenTab[1] = false;
+        tmpOpenTab[2] = false;
+        setOpenTab(tmpOpenTab);
     }
-
 
     return (
         <div className="personal-info-editor-container">
@@ -17,10 +18,10 @@ export default function PersonalInfoEditor({personalInfo, setTmpPersonalInfo}) {
                     Personal Information
                 </div>
                 <button className="personal-info-editor-container__header__btn" onClick={handleClick}>
-                    {isOpen ? '▲' : '▼'}
+                    {openTab[0] ? '▲' : '▼'}
                 </button>
             </div>
-            <div className={isOpen ? "personal-info-editor-container__body__active" : "personal-info-editor-container__body"}>
+            <div className={openTab[0] ? "personal-info-editor-container__body__active" : "personal-info-editor-container__body"}>
                 <InputComponent
                     nameOfClass={'personal-info-editor-container__body'}
                     labelTxt={'Name'}

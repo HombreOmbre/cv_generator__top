@@ -52,6 +52,8 @@ export default function App() {
     const [tmpEduExp, setTmpEduExp] = useState(null);
     const [tmpWorkExp, setTmpWorkExp] = useState(null);
 
+    const [openTab, setOpenTab] = useState([false, false, false]);
+
     const saveAllData = () => {
         setPersonalInfo(tmpPersonalInfo === null ? personalInfo : tmpPersonalInfo);
         setStudyExp(tmpEduExp === null ? studyExp : tmpEduExp);
@@ -115,6 +117,8 @@ export default function App() {
                         setTmpPersonalInfo={setTmpPersonalInfo}
                         setTmpEduExp={setTmpEduExp}
                         setTmpWorkExp={setTmpWorkExp}
+                        openTab={openTab}
+                        setOpenTab={setOpenTab}
                     />
                     <Preview
                         personalInfo={personalInfo}
